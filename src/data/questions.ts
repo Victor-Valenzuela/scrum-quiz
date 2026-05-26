@@ -10,6 +10,7 @@ export interface Question {
     question: { de: string; es: string; en: string };
     answers: Answer[];
     multiSelect?: boolean;
+    shuffleAnswers?: boolean;
 }
 
 export const questions: Question[] = [
@@ -298,6 +299,7 @@ export const questions: Question[] = [
     },
     {
         id: 30,
+        shuffleAnswers: false,
         question: { de: "Das S von INVEST steht fuer Small. Welche PBIs sollten klein sein?", es: "La S de INVEST significa Small. Que PBIs deberian ser pequenos?", en: "The S in INVEST stands for Small. Which PBIs should be small?" },
         answers: [
             { letter: "A", text: { de: "Alle PBIs", es: "Todos los PBIs", en: "All PBIs" }, correct: false, explanation: { de: "Falsch. Nur die oben im Product Backlog muessen klein sein.", es: "Incorrecto. Solo los de arriba en el Product Backlog deben ser pequenos.", en: "Incorrect. Only those at the top of the Product Backlog need to be small." } },
@@ -347,6 +349,7 @@ export const questions: Question[] = [
     },
     {
         id: 35,
+        shuffleAnswers: false,
         question: { de: "Welcher Vertragstyp ist adaptiv und passt gut zu Scrum?", es: "Que tipo de contrato es adaptivo y se ajusta bien a Scrum?", en: "Which contract type is adaptive and fits well with Scrum?" },
         answers: [
             { letter: "A", text: { de: "Festpreis", es: "Precio fijo", en: "Fixed price" }, correct: false, explanation: { de: "Falsch. Festpreisvertraege sind nicht sehr adaptiv.", es: "Incorrecto. Los contratos de precio fijo no son muy adaptivos.", en: "Incorrect. Fixed-price contracts are not very adaptive." } },

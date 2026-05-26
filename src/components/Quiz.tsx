@@ -29,7 +29,10 @@ export default function Quiz({ mode }: { mode: 10 | 40 }) {
 
   const shuffledQuestions = useMemo(() => {
     const shuffledQ = shuffle(questions).slice(0, mode);
-    return shuffledQ.map((q) => ({ ...q, answers: shuffle(q.answers) }));
+    return shuffledQ.map((q) => ({
+      ...q,
+      answers: q.shuffleAnswers === false ? q.answers : shuffle(q.answers),
+    }));
   }, []);
 
   const current: Question | undefined = shuffledQuestions[currentIndex];
@@ -218,7 +221,7 @@ export default function Quiz({ mode }: { mode: 10 | 40 }) {
                     </div>
                   </button>
                   {submitted && (isSelected || isCorrect) && (
-                    <div class={`mt-2 ml-10 p-3 rounded-lg text-sm ${
+                    <div class={`mt-2 p-3 rounded-lg text-sm ${
                       isCorrect
                         ? "bg-emerald-50 dark:bg-emerald-900/10 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/50"
                         : "bg-red-50 dark:bg-red-900/10 text-red-700 dark:text-red-300 border border-red-200 dark:border-red-800/50"
