@@ -1,0 +1,26 @@
+---
+import '../../styles/global.css'
+import Quiz from '../../components/Quiz'
+
+export function getStaticPaths() {
+  return [
+    { params: { mode: '10' } },
+    { params: { mode: '40' } },
+  ];
+}
+
+const { mode } = Astro.params;
+const quizMode = parseInt(mode!) as 10 | 40;
+---
+
+<html lang="de" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quiz {mode} - EXIN Agile Scrum Foundation</title>
+    <link rel="icon" type="image/png" href="/exin.png" />
+  </head>
+  <body class="bg-white dark:bg-zinc-900 transition-colors">
+    <Quiz client:load mode={quizMode} />
+  </body>
+</html>
